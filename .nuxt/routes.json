@@ -1,0 +1,23 @@
+[
+  {
+    "name": "code",
+    "path": "/code",
+    "component": "/Users/bryanclover/projects/top-vendors/pages/code.js",
+    "chunkName": "pages/code",
+    "_name": "_461ba1aa"
+  },
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "/Users/bryanclover/projects/top-vendors/pages/dashboard/index.vue",
+    "chunkName": "pages/dashboard/index",
+    "_name": "_5078816f"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/bryanclover/projects/top-vendors/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_436aeb2a"
+  }
+]

@@ -1,11 +1,19 @@
 import colors from 'vuetify/es5/util/colors'
-
+const logOptions = {
+  isEnabled: true, // optional : defaults to true if not specified
+  logLevel: 'debug', // required ['debug', 'info', 'warn', 'error', 'fatal']
+  stringifyArguments: false, // optional : defaults to false if not specified
+  showLogLevel: true, // optional : defaults to false if not specified
+  showMethodName: true, // optional : defaults to false if not specified
+  separator: '|', // optional : defaults to '|' if not specified
+  showConsoleColors: true // optional : defaults to false if not specified
+}
 export default {
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'spa',
+  mode: 'universal',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -53,7 +61,16 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    ['nuxt-log', logOptions],
+    ['nuxt-socket-io']
   ],
+  io: {
+    // module options
+    sockets: [{
+      name: 'main',
+      url: 'http://localhost:4000'
+    }]
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -61,10 +78,19 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        },
+        light: {
+          primary: '#f5854c',
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -80,5 +106,16 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
+        // Load source in browser dev tools
+        //   Chrome: under Sources -> webpack:// ->  .
+        //   Firefox: under Debugger -> Webpack
+        config.devtool = 'source-map'
+      }
+    }
   }
 }

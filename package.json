@@ -1,16 +1,26 @@
 {
-  "name": "top-vendors",
+  "name": "TopVendors",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "clean": "rm -rf node_modules && npm i",
+    "dev": "nuxt",
     "generate": "nuxt generate",
+    "start": "nuxt start",
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^2.14.0"
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "morgan": "^1.10.0",
+    "nuxt": "^2.14.0",
+    "nuxt-log": "0.1.0",
+    "nuxt-socket-io": "^1.1.11",
+    "read-excel-file": "^4.0.7",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.2",
