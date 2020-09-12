@@ -15,8 +15,8 @@ import { createStore } from './store.js'
 
 import nuxt_plugin_plugin_403da31e from 'nuxt_plugin_plugin_403da31e' // Source: ./components/plugin.js (mode: 'all')
 import nuxt_plugin_plugin_57bba590 from 'nuxt_plugin_plugin_57bba590' // Source: ./vuetify/plugin.js (mode: 'all')
-import nuxt_plugin_nuxtsocketio_74a436ae from 'nuxt_plugin_nuxtsocketio_74a436ae' // Source: ./nuxt-socket-io.js (mode: 'all')
 import nuxt_plugin_nuxtLog_6ae1edc9 from 'nuxt_plugin_nuxtLog_6ae1edc9' // Source: ./nuxtLog.js (mode: 'client')
+import nuxt_plugin_vuexpersistence_2dccff3d from 'nuxt_plugin_vuexpersistence_2dccff3d' // Source: ../plugins/vuex-persistence.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -206,12 +206,12 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_plugin_57bba590(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_nuxtsocketio_74a436ae === 'function') {
-    await nuxt_plugin_nuxtsocketio_74a436ae(app.context, inject)
-  }
-
   if (process.client && typeof nuxt_plugin_nuxtLog_6ae1edc9 === 'function') {
     await nuxt_plugin_nuxtLog_6ae1edc9(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_vuexpersistence_2dccff3d === 'function') {
+    await nuxt_plugin_vuexpersistence_2dccff3d(app.context, inject)
   }
 
   // Lock enablePreview in context

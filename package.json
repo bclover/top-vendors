@@ -11,20 +11,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "http": "0.0.1-security",
-    "morgan": "^1.10.0",
-    "nuxt": "^2.14.0",
-    "nuxt-log": "0.1.0",
-    "nuxt-socket-io": "^1.1.11",
-    "read-excel-file": "^4.0.7",
-    "socket.io": "^2.3.0"
+    "@toast-ui/vue-chart": "^1.1.2",
+    "nuxt": "^2.14.5",
+    "nuxt-log": "^0.1.0",
+    "ramda": "^0.27.1",
+    "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.2",
-    "@vue/test-utils": "^1.0.3",
+    "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.1.0",
     "jest": "^26.1.0",

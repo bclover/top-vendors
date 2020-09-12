@@ -14,6 +14,13 @@
     "_name": "_5078816f"
   },
   {
+    "name": "dashboard-code",
+    "path": "/dashboard/code",
+    "component": "/Users/bryanclover/projects/top-vendors/pages/dashboard/code.js",
+    "chunkName": "pages/dashboard/code",
+    "_name": "_57b4052f"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/bryanclover/projects/top-vendors/pages/index.vue",

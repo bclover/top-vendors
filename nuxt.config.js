@@ -1,13 +1,21 @@
 import colors from 'vuetify/es5/util/colors'
 const logOptions = {
-  isEnabled: true, // optional : defaults to true if not specified
-  logLevel: 'debug', // required ['debug', 'info', 'warn', 'error', 'fatal']
-  stringifyArguments: false, // optional : defaults to false if not specified
-  showLogLevel: true, // optional : defaults to false if not specified
-  showMethodName: true, // optional : defaults to false if not specified
-  separator: '|', // optional : defaults to '|' if not specified
-  showConsoleColors: true // optional : defaults to false if not specified
+  // optional : defaults to true if not specified
+  isEnabled: true,
+  // required ['debug', 'info', 'warn', 'error', 'fatal']
+  logLevel : 'debug',
+  // optional : defaults to false if not specified
+  stringifyArguments : false,
+  // optional : defaults to false if not specified
+  showLogLevel : false,
+  // optional : defaults to false if not specified
+  showMethodName : false,
+  // optional : defaults to '|' if not specified
+  separator: '=>',
+  // optional : defaults to false if not specified
+  showConsoleColors: false
 }
+
 export default {
   /*
   ** Nuxt rendering mode
@@ -45,6 +53,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    { src: '~/plugins/vuex-persistence.js', ssr: false }
   ],
   /*
   ** Auto import components
@@ -61,8 +70,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    ['nuxt-log', logOptions],
-    ['nuxt-socket-io']
+    ['nuxt-log', logOptions]
   ],
   io: {
     // module options
@@ -92,11 +100,12 @@ export default {
         light: {
           primary: '#f5854c',
           accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          secondary: '#3b424c',
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          white: "#fafafa"
         }
       }
     }
