@@ -21,7 +21,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
+  ssr: 'false',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target

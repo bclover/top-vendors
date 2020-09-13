@@ -7,7 +7,7 @@
           </div>
         </v-col>
         <v-col>
-          An application built with vue, nuxt, vuex, ramda, and jscharts
+          An application built with vue, nuxt, vuex, ramda, vuetify and toastui-charts
         </v-col>
       </v-row>
       <v-row>
