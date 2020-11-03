@@ -67,15 +67,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [["nuxt-log", logOptions]],
-  io: {
-    // module options
-    sockets: [
-      {
-        name: "main",
-        url: "http://localhost:4000"
-      }
-    ]
-  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

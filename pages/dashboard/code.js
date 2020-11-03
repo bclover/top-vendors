@@ -1,5 +1,7 @@
 import { propOr } from "ramda";
+import embed from 'vega-embed'
 import { mapGetters } from "vuex";
+import overview from '~/data/charts/bar/totals-overview.json'
 import data from "~/data/vendors.json";
 import JSCharting from "jscharting-vue";
 import { GET_VENDOR_DATA } from "@/constants/store";
@@ -41,6 +43,7 @@ export default {
       selectedItemName: "",
       shrinkRetail: "No vendor selected.",
       totals: null,
+      def: null,
       trnGrowth: "No vendor selected."
     };
   },
@@ -51,7 +54,13 @@ export default {
     })
   },
 
-  mounted() {
+  watch:{
+    def(vega){
+      if(vega) this.draw()
+    }
+  },
+
+  async mounted() {
     if (this.vendors) {
       this.getTotals();
       this.createTotalsBarChart();
@@ -59,6 +68,7 @@ export default {
     } else {
       this.vendors = this.jsonData;
     }
+    await embed('#viz', overview, {actions:false})
   },
 
   methods: {
@@ -123,6 +133,11 @@ export default {
       return Number(numbersOnly);
     },
 
+    async draw(){
+      let def = JSON.parse(overview)
+      await embed('#viz', def, {actions:false})
+    },
+
     getTotals() {
       this.totals = this.vendors.slice(0, 3);
     },
@@ -140,6 +155,35 @@ export default {
       this.selectedItemName = propOr("", "name", this.selectedItem);
       this.shrinkRetail = propOr("No data", "shrink-retail", this.selectedItem);
       this.trnGrowth = propOr("No data", "turn-growth", this.selectedItem);
+    }
+  }
+};
+
+const vlSpec = {
+  $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+  data: {
+    values: [
+      {a: 'C', b: 2},
+      {a: 'C', b: 7},
+      {a: 'C', b: 4},
+      {a: 'D', b: 1},
+      {a: 'D', b: 2},
+      {a: 'D', b: 6},
+      {a: 'E', b: 8},
+      {a: 'E', b: 4},
+      {a: 'E', b: 7}
+    ]
+  },
+  mark: 'bar',
+  encoding: {
+    y: {field: 'a', type: 'nominal'},
+    x: {
+      aggregate: 'average',
+      field: 'b',
+      type: 'quantitative',
+      axis: {
+        title: 'Average of b'
+      }
     }
   }
 };

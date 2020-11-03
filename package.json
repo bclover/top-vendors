@@ -14,9 +14,14 @@
     "nuxt": "^2.14.5",
     "nuxt-log": "^0.1.0",
     "ramda": "^0.27.1",
+    "vega": "^5.17.0",
+    "vega-embed": "^6.12.2",
+    "vega-lite": "^4.17.0",
+    "vega-lite-api": "^0.15.0",
     "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
+    "@nuxt/types": "~2.14.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",

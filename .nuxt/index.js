@@ -13,9 +13,9 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_403da31e from 'nuxt_plugin_plugin_403da31e' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_plugin_57bba590 from 'nuxt_plugin_plugin_57bba590' // Source: ./vuetify/plugin.js (mode: 'all')
-import nuxt_plugin_nuxtLog_6ae1edc9 from 'nuxt_plugin_nuxtLog_6ae1edc9' // Source: ./nuxtLog.js (mode: 'client')
+import nuxt_plugin_plugin_309f6140 from 'nuxt_plugin_plugin_309f6140' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_plugin_75f8308e from 'nuxt_plugin_plugin_75f8308e' // Source: ./vuetify/plugin.js (mode: 'all')
+import nuxt_plugin_nuxtLog_7f70a48b from 'nuxt_plugin_nuxtLog_7f70a48b' // Source: ./nuxtLog.js (mode: 'client')
 import nuxt_plugin_vuexpersistence_2dccff3d from 'nuxt_plugin_vuexpersistence_2dccff3d' // Source: ../plugins/vuex-persistence.js (mode: 'client')
 
 // Component: <ClientOnly>
@@ -69,7 +69,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"titleTemplate":"%s - TopVendors","title":"TopVendors","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"## Build Setup"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
+    head: {"titleTemplate":"%s - TopVendors","title":"TopVendors","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
 
     store,
     router,
@@ -198,16 +198,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_403da31e === 'function') {
-    await nuxt_plugin_plugin_403da31e(app.context, inject)
+  if (typeof nuxt_plugin_plugin_309f6140 === 'function') {
+    await nuxt_plugin_plugin_309f6140(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_57bba590 === 'function') {
-    await nuxt_plugin_plugin_57bba590(app.context, inject)
+  if (typeof nuxt_plugin_plugin_75f8308e === 'function') {
+    await nuxt_plugin_plugin_75f8308e(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_nuxtLog_6ae1edc9 === 'function') {
-    await nuxt_plugin_nuxtLog_6ae1edc9(app.context, inject)
+  if (process.client && typeof nuxt_plugin_nuxtLog_7f70a48b === 'function') {
+    await nuxt_plugin_nuxtLog_7f70a48b(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuexpersistence_2dccff3d === 'function') {

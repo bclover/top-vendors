@@ -110,8 +110,7 @@
       <v-row class="text-h6 primary--text font-weight-bold  mx-5">
         <v-col>
           <div>Totals - Overview:</div>
-          <div>
-            <JSCharting :options="totalsOptions" class="total-chart"></JSCharting>
+          <div id="viz">
           </div>
         </v-col>
         <v-col>
