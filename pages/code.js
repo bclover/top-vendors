@@ -1,5 +1,5 @@
 import propOr from "ramda/src/propOr";
-import data from "~/data/vendors.json";
+import data from "~/static/data/vendors.json";
 import { SET_VENDOR_DATA } from "@/constants/store";
 import { DASHBOARD } from "~/constants/routes";
 

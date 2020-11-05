@@ -2,7 +2,7 @@ import { propOr } from "ramda";
 import embed from 'vega-embed'
 import { mapGetters } from "vuex";
 import salesByStoreSpec from '~/charts/bar/salesByStoreSpec.json'
-import data from "~/data/vendors.json";
+import data from "~/static/data/vendors.json";
 import JSCharting from "jscharting-vue";
 import { GET_VENDOR_DATA } from "@/constants/store";
 
