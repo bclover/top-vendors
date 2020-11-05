@@ -1,7 +1,7 @@
 import { propOr } from "ramda";
 import embed from 'vega-embed'
 import { mapGetters } from "vuex";
-import overview from '~/data/charts/bar/totals-overview.json'
+import salesByStoreChartConfig from '~/charts/bar/sales-by-store-chart.json'
 import data from "~/data/vendors.json";
 import JSCharting from "jscharting-vue";
 import { GET_VENDOR_DATA } from "@/constants/store";
@@ -68,37 +68,11 @@ export default {
     } else {
       this.vendors = this.jsonData;
     }
-    await embed('#viz', overview, {actions:false})
   },
 
   methods: {
-    createTotalsBarChart() {
-      this.totalsOptions = {
-        type: "vertical column",
-        options: { color: "#00ee00" },
-        series: [
-          {
-            points: [
-              {
-                x: "Sales",
-                y: this.createValue(this.totals[0], "sales")
-              },
-              {
-                x: "Cost",
-                y: this.createValue(this.totals[0], "cost")
-              },
-              {
-                x: "Retail Inv",
-                y: this.createValue(this.totals[0], "retail-inv")
-              },
-              {
-                x: "Damage",
-                y: this.createValue(this.totals[0], "retail-inv")
-              }
-            ]
-          }
-        ]
-      };
+    async createTotalsBarChart() {
+      await embed('#salesByStore', salesByStoreChartConfig, {actions:false})
     },
 
     createDamagesBarChart() {
@@ -134,8 +108,8 @@ export default {
     },
 
     async draw(){
-      let def = JSON.parse(overview)
-      await embed('#viz', def, {actions:false})
+      let def = JSON.parse(salesByStoreChartConfig)
+      await embed('#storeSales', def, {actions:false})
     },
 
     getTotals() {

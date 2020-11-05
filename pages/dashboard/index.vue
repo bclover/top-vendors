@@ -109,9 +109,8 @@
       <!-- BOTTOM ROW -->
       <v-row class="text-h6 primary--text font-weight-bold  mx-5">
         <v-col>
-          <div>Totals - Overview:</div>
-          <div id="viz">
-          </div>
+          <div>Store - Sales:</div>
+          <div id="salesByStore" />
         </v-col>
         <v-col>
           <div>Totals - Growth:</div>
