@@ -66,7 +66,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [["nuxt-log", logOptions]],
+  modules: [
+    ["nuxt-log", logOptions],
+    '@nuxtjs/axios'
+  ],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

@@ -1,10 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "A simple bar chart with data loaded from a url.",
   "data": {"url": "data/sales_by_store.json"},
+  "description": "A bar chart of sales by store.",
+  "height": "125",
   "mark": {
-    "type": "bar",
     "color": {
+      "cornerRadius": 0,
+      "cornerRadiusEnd": 10,
       "gradient": "linear",
       "stops": [
         {
@@ -17,19 +19,27 @@
         }
       ],
       "x1": 1,
-      "y1": 1,
       "x2": 1,
+      "y1": 1,
       "y2": 0
     },
-    "cornerRadius": 0,
-    "cornerRadiusEnd": 10,
+    "type": "bar",
     "width": 20
   },
+
   "encoding": {
-    "x": {"field": "store", "type": "ordinal",  "axis": {"labelAngle": 0}},
-    "y": {"field": "sales", "type": "quantitative"}
+    "x": {
+      "axis": {"labelAngle": 0},
+      "field": "store",
+      "title": "Stores By Id",
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "sales",
+      "title": "Store Sales",
+      "type": "quantitative"
+    }
   },
 
-  "width": "500",
-  "height": "125"
+  "width": "500"
 }

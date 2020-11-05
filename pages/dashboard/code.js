@@ -1,7 +1,7 @@
 import { propOr } from "ramda";
 import embed from 'vega-embed'
 import { mapGetters } from "vuex";
-import salesByStoreChartConfig from '~/charts/bar/sales-by-store-chart.json'
+import salesByStoreSpec from '~/charts/bar/salesByStoreSpec.json'
 import data from "~/data/vendors.json";
 import JSCharting from "jscharting-vue";
 import { GET_VENDOR_DATA } from "@/constants/store";
@@ -54,16 +54,10 @@ export default {
     })
   },
 
-  watch:{
-    def(vega){
-      if(vega) this.draw()
-    }
-  },
-
-  async mounted() {
+   mounted() {
     if (this.vendors) {
       this.getTotals();
-      this.createTotalsBarChart();
+      this.createSalesByStoreChart();
       this.createDamagesBarChart();
     } else {
       this.vendors = this.jsonData;
@@ -71,8 +65,11 @@ export default {
   },
 
   methods: {
-    async createTotalsBarChart() {
-      await embed('#salesByStore', salesByStoreChartConfig, {actions:false})
+    async createSalesByStoreChart() {
+      await embed(
+        '#salesByStore',
+        salesByStoreSpec,
+        {mode: 'vega-lite', actions:false})
     },
 
     createDamagesBarChart() {
@@ -105,11 +102,6 @@ export default {
       const noPercent = noDollarSign.replace(/\%/g, "");
       const numbersOnly = noPercent.replace(/,/g, "");
       return Number(numbersOnly);
-    },
-
-    async draw(){
-      let def = JSON.parse(salesByStoreChartConfig)
-      await embed('#storeSales', def, {actions:false})
     },
 
     getTotals() {
